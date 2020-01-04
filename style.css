@@ -3,7 +3,7 @@ body {
     font-size: 15px;
     text-align: center;
     color: hsl(229, 6%, 66%);
-    margin-top: 100px;
+    margin-top: 50px;
 }
 
 h1 {
@@ -22,29 +22,67 @@ h2 {
     padding: 0%;   
 }
 
-p {
-    padding: 5px;
-}
-
 .box {
     border-radius: 7.5px;
-    padding: 20px, 10px;
+    padding: 30px 10px 15px 30px;
     width: 300px;
     height: 200px;
     text-align: left;
-    box-shadow: 0px 3px 8px 6px hsl(0, 1%, 83%);
+    box-shadow: 0px 3px 8px 6px hsl(0, 2%, 78%);
 }
 
-.box h2 {
-    font-size: 15px;
-}
-
-.grid {
+@media(min-width: 50px){.container {
     display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
+    grid-gap: 30px;
+}
 }
 
-.grid-item1 {
-    
+.container .box{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: minmax(min-content, max-content);
+    grid-template-areas: 
+        "header header header"
+        "content content content"
+        ". . image"
+}
+
+.boxHead {
+    grid-area: header;
+    font-size: 20px;
+}
+
+.boxContent {
+    grid-area: content;
+}
+
+.boxImg {
+    grid-area: image;
+}
+
+.box.one{
+    grid-column: 2/3;
+    grid-row: 2/3;
+    border-top: solid 5px hsl(180, 62%, 55%);
+}
+
+.box.two{
+    grid-column: 3/4;
+    border-top: solid 5px hsl(0, 78%, 62%);
+}
+
+.box.three{
+    grid-column: 3 / 4;
+    grid-row: 3 /4;
+    border-top: solid 5px hsl(34, 97%, 64%);
+}
+
+.box.four{
+    grid-column: 4/5;
+    grid-row: 2/3;
+    border-top: solid 5px hsl(212, 86%, 64%);
 }
 
 .attribution {
